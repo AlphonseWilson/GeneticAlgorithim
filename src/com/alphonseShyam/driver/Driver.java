@@ -1,6 +1,10 @@
 package com.alphonseShyam.driver;
 
 import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
+
 
 public class Driver extends Canvas implements Runnable{
 	/**
@@ -60,11 +64,22 @@ public class Driver extends Canvas implements Runnable{
 		
 	}
 	private void render() {
+		BufferStrategy bs = this.getBufferStrategy();
+		if (bs == null) {
+			this.createBufferStrategy(3);
+			return;
+		}
+		
+		Graphics g = bs.getDrawGraphics();
+		g.setColor(Color.BLACK);
+		g.fillRect(0,0,WIDTH, HEIGHT);
+		g.dispose();
+		bs.show();
 		
 	}
 	public static void main(String args[]) {
 		
-		System.out.println("hello world");
+		new Driver();
 		
 	}
 
