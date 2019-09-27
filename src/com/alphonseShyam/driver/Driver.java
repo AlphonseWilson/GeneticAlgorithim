@@ -16,8 +16,17 @@ public class Driver extends Canvas implements Runnable{
 	public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
 	private Thread thread;
 	private boolean running = false;
+	
+	private Handler handler;
+	
+	
 	public Driver() {
 		new Window(WIDTH, HEIGHT, "Lets preform a genetic algorithm", this);
+		
+		handler = new Handler();
+	
+		handler.addObject(new Player(10, HEIGHT/2-40, ID.Player));
+
 	}
 	
 	public synchronized void start() {
@@ -61,7 +70,7 @@ public class Driver extends Canvas implements Runnable{
 		stop();
 	}
 	private void tick() {
-		
+		handler.tick();
 	}
 	private void render() {
 		BufferStrategy bs = this.getBufferStrategy();
@@ -73,6 +82,9 @@ public class Driver extends Canvas implements Runnable{
 		Graphics g = bs.getDrawGraphics();
 		g.setColor(Color.BLACK);
 		g.fillRect(0,0,WIDTH, HEIGHT);
+		
+		handler.render(g);
+		
 		g.dispose();
 		bs.show();
 		
