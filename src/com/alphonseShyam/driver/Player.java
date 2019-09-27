@@ -8,14 +8,17 @@ public class Player extends GameObject{
 	public Player(int x, int y, ID id) {
 		super(x, y, id);
 		
-//		velX = 1;
-//		velY = 1;
+		this.setX(x);
+		this.setY(y);
+
+		
 	}
 
 	public void tick() {
-		
-		x = velX;
-		y = velY;
+		velX = 1;
+		velY = 1;
+		x += velX;
+		y += velY;
 	}
 
 	public void render(Graphics g) {
