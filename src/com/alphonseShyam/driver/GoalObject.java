@@ -3,9 +3,9 @@ package com.alphonseShyam.driver;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Player extends GameObject{
+public class GoalObject extends GameObject{
 
-	public Player(int x, int y, ID id) {
+	public GoalObject(int x, int y, ID id) {
 		super(x, y, id);
 		
 //		velX = 1;
@@ -19,8 +19,8 @@ public class Player extends GameObject{
 	}
 
 	public void render(Graphics g) {
-		g.setColor(Color.white);
-		g.fillOval(x, y, 32, 32);
+		g.setColor(Color.green);
+		g.fillOval(x, y, 50, 50);
 	}
 
 }

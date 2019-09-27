@@ -26,6 +26,7 @@ public class Driver extends Canvas implements Runnable{
 		handler = new Handler();
 	
 		handler.addObject(new Player(10, HEIGHT/2-40, ID.Player));
+		handler.addObject(new GoalObject(WIDTH/2, 100, ID.Goal));
 
 	}
 	
